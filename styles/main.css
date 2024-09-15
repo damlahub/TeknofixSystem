@@ -1,0 +1,267 @@
+html {
+    -ms-overflow-style: none;  
+    scrollbar-width: none;  
+}
+* {
+    border: 0;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: var(--white);
+}
+/* Global Css */
+.addBtn {
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    background-color: var(--pink);
+    position: fixed;
+    right: 15px;
+    top: 10px;
+    color: white;
+    font-size: large;
+    font-weight: bold;
+}
+
+.clearBtn {
+    padding: 15px;
+    background-color: var(--darkBlue);
+    position: fixed;
+    right: -30px;
+    top: 120px;
+    color: white;
+    font-size: large;
+    font-weight: bold;
+    transform: rotateZ(-90deg);
+}
+
+.deleteBtn {
+    width: 100px;
+    padding: 5px;
+    color: var(--white);
+    font-weight: bold;
+    font-size: 1em;
+    border-radius: 5%;
+    background-color: var(--darkBlue);
+}
+
+#menu,
+#menu ul {
+    width: 100%;
+    height: 5vh;
+    background-color: var(--darkBlue);
+    position: fixed;
+    bottom: 0;
+}
+
+#menu ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#menu ul li,
+#menu ul li a {
+    background-color: var(--darkBlue);
+    color: var(--white);
+    list-style: none;
+    text-decoration: none;
+    letter-spacing: 5px;
+    margin-left: 20px;
+    text-align: center;
+    margin-right: 5px;
+}
+
+#menu ul li {
+    border-left: 2px solid var(--pink);
+}
+
+#mainContent {
+    width: 100%;
+    background-color: var(--white);
+}
+
+.cardsContainer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    padding-bottom: 50px;
+    position: relative;
+}
+
+.cardsContainer .card {
+    width: 25%;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 2%;
+    margin: 10px;
+    position: relative;
+    border: 2px solid var(--darkBlue);
+}
+
+.cardsContainer .card h3 {
+    color: var(--darkBlue);
+    border: 2px solid var(--darkBlue);
+    padding: 15px;
+    border-radius: 5%;
+    margin: 25px;
+}
+
+.cardsContainer .card input {
+    text-align: center;
+    width: 100px;
+    border: 2px solid var(--pink);
+    padding: 15px;
+    font-weight: bold;
+}
+
+.itemNumber {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 25px;
+    background-color: var(--pink);
+    color: var(--white);
+    border-top-left-radius: 5%;
+    border-bottom-right-radius: 700%;
+    border-bottom-left-radius: 10%;
+    font-weight: bold;
+}
+
+.totalContainer{
+    position: fixed;
+    text-align: center;
+    font-weight: bold;
+    color: var(--white);
+    z-index: 5;
+    background-color: var(--darkBlue);
+    padding: 5px;
+    transform: rotateZ(-90deg);
+    width: 50vh;
+    bottom: 50%;
+    right: -10%;
+}
+.totalContainer h3,
+.totalContainer span{
+    background-color: transparent;
+}
+.totalContainer span{
+    color: var(--pink);
+    font-weight: bold;
+    background-color: var(--white);
+    padding: 0 15px;
+}
+
+/* ---------------------------- */
+
+.panel {
+    width: 700px;
+    height: 500px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: var(--semiTransparent);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 8px var(--semiTransparent);
+    visibility: hidden;
+}
+
+.panel h1 {
+    font-size: 1.5em;
+    color: var(--darkBlue);
+    font-weight: bold;
+    padding: 15px;
+}
+
+.panelButtons {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    background-color: transparent;
+}
+
+/* ---------------------------- */
+
+
+/* Projects Section */
+#projectsContent {
+    width: 100%;
+    position: relative;
+}
+
+#projectsContent .cards {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#projectsContent .card {
+    width: 60%;
+    border: 1px solid var(--pink);
+    padding: 25px;
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#projectsContent .card h1 {
+    padding: 5px;
+    font-size: large;
+    background-color: var(--pink);
+    color: var(--white);
+}
+
+#projectsContent .card table th {
+    text-align: start;
+    font-size: large;
+    color: var(--darkBlue);
+    padding: 5px 0;
+}
+
+#projectsContent .card table td {
+    padding: 5px 0;
+}
+
+.projectContent,
+.projectContent h1,
+.projectContent form,
+.projectContent form input,
+.projectContent form label,
+.projectContent form textarea,
+.projectContent form button {
+    background-color: transparent;
+    font-weight: bold;
+}
+
+.projectContent {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid var(--pink);
+}
+
+.projectContent form textarea,
+.projectContent form input {
+    border: 1px solid var(--pink);
+    padding: 5px;
+}
+
+.projectContent form button {
+    background-color: var(--pink);
+    color: var(--darkBlue);
+    padding: 15px;
+    border-radius: 10%;
+    font-weight: bold;
+    font-size: 1em;
+}
