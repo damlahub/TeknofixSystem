@@ -198,7 +198,6 @@ html {
     width: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
 }
 
@@ -220,10 +219,11 @@ html {
 }
 
 #projectsContent .card table th {
-    text-align: start;
     font-size: large;
+    text-align: start;
     color: var(--darkBlue);
     padding: 5px 0;
+    width: 200px;
 }
 
 #projectsContent .card table td {
