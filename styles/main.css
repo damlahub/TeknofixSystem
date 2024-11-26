@@ -1,7 +1,8 @@
 html {
-    -ms-overflow-style: none;  
-    scrollbar-width: none;  
+    -ms-overflow-style: none;
+    scrollbar-width: none;
 }
+
 * {
     border: 0;
     margin: 0;
@@ -9,6 +10,7 @@ html {
     box-sizing: border-box;
     background-color: var(--white);
 }
+
 /* Global Css */
 .addBtn {
     width: 40px;
@@ -132,7 +134,7 @@ html {
     font-weight: bold;
 }
 
-.totalContainer{
+.totalContainer {
     position: fixed;
     text-align: center;
     font-weight: bold;
@@ -145,11 +147,13 @@ html {
     bottom: 50%;
     right: -10%;
 }
+
 .totalContainer h3,
-.totalContainer span{
+.totalContainer span {
     background-color: transparent;
 }
-.totalContainer span{
+
+.totalContainer span {
     color: var(--pink);
     font-weight: bold;
     background-color: var(--white);
@@ -191,6 +195,7 @@ html {
 /* Projects Section */
 #projectsContent {
     width: 100%;
+    padding-bottom: 50px;
     position: relative;
 }
 
@@ -265,3 +270,46 @@ html {
     font-weight: bold;
     font-size: 1em;
 }
+
+/*-----------------------------------*
+/* Record Video Section */
+#recordVideoSide {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#recordUserName::placeholder {
+    color: var(--darkBlue);
+    font-weight: bold;
+    text-align: center;
+}
+#recordUserName:focus {
+    outline: none;
+}
+#webcam{
+    width: 35%;
+}
+#recordUserName {
+    text-align: center;
+    background-color: var(--white) !important;
+    border: 1px solid var(--pink);
+}
+
+#download-video {
+    color: var(--darkBlue);
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.recordVideoBtn {
+    background-color: var(--pink);
+    color: var(--darkBlue);
+    padding: 10px;
+    border-radius: 1%;
+    font-weight: bold;
+    width: 15%;
+    margin: 5px;
+}
+
+/*-----------------------------------*

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Recording</title>
+    <style>
+        /* Add styles to make buttons visible */
+        button {
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <video muted autoplay id="webcam" width="640" height="480"></video>
+
+    <button id="start-record" disabled>Start Recording</button>
+    <button id="stop-record" disabled>Stop Recording</button>
+    <button id="download-video" download="test.webm">Download Video</button>
+
+    <script>
+        const videoElement = document.querySelector("#webcam");
+        const startRecordButton = document.querySelector("#start-record");
+        const stopRecordButton = document.querySelector("#stop-record");
+        const downloadLink = document.querySelector("#download-video");
+
+        let cameraStream = null;
+        let mediaRecorder = null;
+        let blobsRecorded = [];
+
+        // Check if the browser supports necessary APIs
+        if (!navigator.mediaDevices || !MediaRecorder) {
+            alert("Your browser does not support the required APIs for video recording.");
+        }
+
+        const startCamera = async () => {
+            try {
+                cameraStream = await navigator.mediaDevices.getUserMedia({ video: true, audio: true });
+                videoElement.srcObject = cameraStream;
+
+                // Enable the "Start Recording" button after camera is initialized
+                startRecordButton.disabled = false;
+            } catch (err) {
+                console.error("Camera access failed:", err);
+            }
+        }
+
+        // Start recording
+        startRecordButton.addEventListener('click', function () {
+            mediaRecorder = new MediaRecorder(cameraStream, { mimeType: 'video/webm' });
+
+            mediaRecorder.ondataavailable = function (e) {
+                blobsRecorded.push(e.data);
+            };
+
+            mediaRecorder.onstop = function () {
+                // Create a downloadable video link after recording stops
+                const videoBlob = new Blob(blobsRecorded, { type: 'video/webm' });
+                const videoUrl = URL.createObjectURL(videoBlob);
+                downloadLink.href = videoUrl;
+
+                // Enable the "Start Recording" button again
+                startRecordButton.disabled = false;
+                stopRecordButton.disabled = true;
+            };
+
+            mediaRecorder.start();
+            startRecordButton.disabled = true; // Disable the start button once recording starts
+            stopRecordButton.disabled = false; // Enable the stop button
+        });
+
+        // Stop recording
+        stopRecordButton.addEventListener('click', function () {
+            mediaRecorder.stop();
+            stopRecordButton.disabled = true; // Disable the stop button after recording stops
+        });
+
+        startCamera();
+    </script>
+</body>
+</html>
